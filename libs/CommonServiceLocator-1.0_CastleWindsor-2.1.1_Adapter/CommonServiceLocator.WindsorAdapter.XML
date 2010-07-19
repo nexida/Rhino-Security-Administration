@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonServiceLocator.WindsorAdapter</name>
+    </assembly>
+    <members>
+        <member name="T:CommonServiceLocator.WindsorAdapter.WindsorServiceLocator">
+            <summary>
+            Adapts the behavior of the Windsor container to the common
+            IServiceLocator
+            </summary>
+        </member>
+        <member name="M:CommonServiceLocator.WindsorAdapter.WindsorServiceLocator.#ctor(Castle.Windsor.IWindsorContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommonServiceLocator.WindsorAdapter.WindsorServiceLocator"/> class.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:CommonServiceLocator.WindsorAdapter.WindsorServiceLocator.DoGetInstance(System.Type,System.String)">
+            <summary>
+                        When implemented by inheriting classes, this method will do the actual work of resolving
+                        the requested service instance.
+            </summary>
+            <param name="serviceType">Type of instance requested.</param>
+            <param name="key">Name of registered service you want. May be null.</param>
+            <returns>
+            The requested service instance.
+            </returns>
+        </member>
+        <member name="M:CommonServiceLocator.WindsorAdapter.WindsorServiceLocator.DoGetAllInstances(System.Type)">
+            <summary>
+                        When implemented by inheriting classes, this method will do the actual work of
+                        resolving all the requested service instances.
+            </summary>
+            <param name="serviceType">Type of service requested.</param>
+            <returns>
+            Sequence of service instance objects.
+            </returns>
+        </member>
+    </members>
+</doc>

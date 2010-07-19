@@ -1,0 +1,2 @@
+This version has been built with NHibernate 2.1.2, which makes it different from the version downloadable from github. 
+In fact, at the time of this writing (19 july 2010) Rhino.Security on github is still referencing NH 2.1.1.

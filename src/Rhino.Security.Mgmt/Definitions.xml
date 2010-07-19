@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.nexida.com/codegeneration/definitions/1">
+  <types>
+    <type id="NorthwindWithSecurity.dbo.security_EntitiesGroups">
+      <name>EntitiesGroup</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Parent</name>
+          <associationIdentifier>Fkd0398Ec71Cf0F16E</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>DirectChildren</name>
+          <associationIdentifier>Fkd0398Ec71Cf0F16E</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_EntityReferencesToEntitiesGroups.GroupId">
+          <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Entities</name>
+          <associationIdentifier>SecurityEntityReferencesToEntitiesGroups</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>GroupId</columnName>
+            <manyToManyTableName>security_EntityReferencesToEntitiesGroups</manyToManyTableName>
+            <manyToManyOtherFkColumnName>EntityReferenceId</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_EntityGroupsHierarchy.ChildGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>AllChildren</name>
+          <associationIdentifier>SecurityEntityGroupsHierarchy</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ChildGroup</columnName>
+            <manyToManyTableName>security_EntityGroupsHierarchy</manyToManyTableName>
+            <manyToManyOtherFkColumnName>ParentGroup</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_EntityGroupsHierarchy.ParentGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>AllParents</name>
+          <associationIdentifier>SecurityEntityGroupsHierarchy</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ParentGroup</columnName>
+            <manyToManyTableName>security_EntityGroupsHierarchy</manyToManyTableName>
+            <manyToManyOtherFkColumnName>ChildGroup</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntitiesGroups.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntitiesGroups.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntitiesGroups.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntitiesGroups.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntitiesGroups.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_EntitiesGroups</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.security_EntityReferences">
+      <name>EntityReference</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="EntitySecurityKey">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>EntitySecurityKey</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EntitySecurityKey</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Type">
+          <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Type</name>
+          <associationIdentifier>Fkbbe4029387Cc6C80</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Type</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityReferences.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityReferences.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityReferences.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityReferences.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityReferences.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_EntityReferences</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.security_EntityTypes">
+      <name>EntityType</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityTypes.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityTypes.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityTypes.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityTypes.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_EntityTypes.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_EntityTypes</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.security_Operations">
+      <name>Operation</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Comment">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Comment</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Comment</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Parent</name>
+          <associationIdentifier>Fke58Bbff82B7Cdcd3</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_Operations.Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Children</name>
+          <associationIdentifier>Fke58Bbff82B7Cdcd3</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Operations.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Operations.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Operations.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Operations.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Operations.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_Operations</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.security_Permissions">
+      <name>Permission</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="EntitySecurityKey">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>EntitySecurityKey</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EntitySecurityKey</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Allow">
+          <typeId>http://www.w3.org/2001/XMLSchema boolean</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Allow</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Allow</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Level">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Level</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Level</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="EntityTypeName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>EntityTypeName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EntityTypeName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="EntitiesGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>EntitiesGroup</name>
+          <associationIdentifier>Fkea223C4C6C8Ec3A5</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EntitiesGroup</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Operation">
+          <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Operation</name>
+          <associationIdentifier>Fkea223C4C71C937C7</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Operation</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="UsersGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>UsersGroup</name>
+          <associationIdentifier>Fkea223C4C2Ee8F612</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UsersGroup</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="User">
+          <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>User</name>
+          <associationIdentifier>Fkea223C4Cfc8C2B95</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>User</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Permissions.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Permissions.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Permissions.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Permissions.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_Permissions.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_Permissions</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.security_UsersGroups">
+      <name>UsersGroup</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Parent</name>
+          <associationIdentifier>Fkec3Af233D0Cb87D0</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_UsersGroups.Parent">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>AllParents</name>
+          <associationIdentifier>Fkec3Af233D0Cb87D0</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Parent</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_UsersToUsersGroups.GroupId">
+          <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Users</name>
+          <associationIdentifier>SecurityUsersToUsersGroups</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>GroupId</columnName>
+            <manyToManyTableName>security_UsersToUsersGroups</manyToManyTableName>
+            <manyToManyOtherFkColumnName>UserId</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_UsersGroupsHierarchy.ChildGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>AllChildren</name>
+          <associationIdentifier>SecurityUsersGroupsHierarchy</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ChildGroup</columnName>
+            <manyToManyTableName>security_UsersGroupsHierarchy</manyToManyTableName>
+            <manyToManyOtherFkColumnName>ParentGroup</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="NorthwindWithSecurity.dbo.security_UsersGroupsHierarchy.ParentGroup">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>DirectChildren</name>
+          <associationIdentifier>SecurityUsersGroupsHierarchy</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ParentGroup</columnName>
+            <manyToManyTableName>security_UsersGroupsHierarchy</manyToManyTableName>
+            <manyToManyOtherFkColumnName>ChildGroup</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_UsersGroups.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_UsersGroups.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_UsersGroups.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_UsersGroups.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.security_UsersGroups.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>security_UsersGroups</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="NorthwindWithSecurity.dbo.Users">
+      <name>User</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="Id">
+          <typeId>http://www.w3.org/2001/XMLSchema long</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Id</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>Id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="17c74fad40a84facabb61a6908fe79f7">
+          <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Groups</name>
+          <associationIdentifier>SecurityUsersToUsersGroups</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UserId</columnName>
+            <manyToManyTableName>security_UsersToUsersGroups</manyToManyTableName>
+            <manyToManyOtherFkColumnName>GroupId</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView xsi:nil="true" />
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.Users.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.Users.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.Users.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.Users.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>NorthwindWithSecurity.dbo.Users.Search</operationId>
+          </operationReference>
+        </search>
+        <search id="c0b1352ffd7a4ff79deb5ba6c6a34495">
+          <specialization>ByGroup</specialization>
+          <operationReference>
+            <serviceId>NorthwindWithSecurity</serviceId>
+            <operationId>e1813cf13d64483aaa2c37326eafb496</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Users</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+  </types>
+  <services>
+    <service id="NorthwindWithSecurity">
+      <name>NorthwindWithSecurity</name>
+      <namespace />
+      <relationalMapping>
+        <catalog>NorthwindWithSecurity</catalog>
+      </relationalMapping>
+      <operations>
+        <operation id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Create">
+          <name>CreateDboSecurityEntitiesGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntitiesGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntitiesGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Read">
+          <name>ReadDboSecurityEntitiesGroup</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Update">
+          <name>UpdateDboSecurityEntitiesGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntitiesGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntitiesGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Delete">
+          <name>DeleteDboSecurityEntitiesGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntitiesGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntitiesGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntitiesGroups.Search">
+          <name>SearchDboSecurityEntitiesGroup</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntitiesGroups</typeId>
+                <fieldId>Name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityReferences.Create">
+          <name>CreateDboSecurityEntityReference</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityReferences">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityReference</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityReferences.Read">
+          <name>ReadDboSecurityEntityReference</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityReferences.Update">
+          <name>UpdateDboSecurityEntityReference</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityReferences">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityReference</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityReferences.Delete">
+          <name>DeleteDboSecurityEntityReference</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityReferences">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityReference</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityReferences.Search">
+          <name>SearchDboSecurityEntityReference</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="EntitySecurityKey">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>entitySecurityKey</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityReferences</typeId>
+                <fieldId>EntitySecurityKey</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityTypes.Create">
+          <name>CreateDboSecurityEntityType</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityTypes">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityType</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityTypes.Read">
+          <name>ReadDboSecurityEntityType</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityTypes.Update">
+          <name>UpdateDboSecurityEntityType</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityTypes">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityType</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityTypes.Delete">
+          <name>DeleteDboSecurityEntityType</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_EntityTypes">
+              <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityEntityType</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_EntityTypes.Search">
+          <name>SearchDboSecurityEntityType</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_EntityTypes</typeId>
+                <fieldId>Name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Operations.Create">
+          <name>CreateDboSecurityOperation</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Operations">
+              <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityOperation</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Operations.Read">
+          <name>ReadDboSecurityOperation</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Operations.Update">
+          <name>UpdateDboSecurityOperation</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Operations">
+              <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityOperation</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Operations.Delete">
+          <name>DeleteDboSecurityOperation</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Operations">
+              <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityOperation</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Operations.Search">
+          <name>SearchDboSecurityOperation</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+                <fieldId>Name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Comment">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>comment</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Operations</typeId>
+                <fieldId>Comment</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Permissions.Create">
+          <name>CreateDboSecurityPermission</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Permissions">
+              <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityPermission</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Permissions.Read">
+          <name>ReadDboSecurityPermission</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Permissions.Update">
+          <name>UpdateDboSecurityPermission</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Permissions">
+              <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityPermission</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Permissions.Delete">
+          <name>DeleteDboSecurityPermission</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_Permissions">
+              <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityPermission</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_Permissions.Search">
+          <name>SearchDboSecurityPermission</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="EntitySecurityKey">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>entitySecurityKey</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>EntitySecurityKey</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Allow">
+              <typeId>http://www.w3.org/2001/XMLSchema boolean</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>allow</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>Allow</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Level">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>level</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>Level</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="EntityTypeName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>entityTypeName</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_Permissions</typeId>
+                <fieldId>EntityTypeName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_UsersGroups.Create">
+          <name>CreateDboSecurityUsersGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_UsersGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityUsersGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_UsersGroups.Read">
+          <name>ReadDboSecurityUsersGroup</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_UsersGroups.Update">
+          <name>UpdateDboSecurityUsersGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_UsersGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityUsersGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_UsersGroups.Delete">
+          <name>DeleteDboSecurityUsersGroup</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.security_UsersGroups">
+              <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>securityUsersGroup</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.security_UsersGroups.Search">
+          <name>SearchDboSecurityUsersGroup</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://microsoft.com/wsdl/types/ guid</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+                <fieldId>Name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.Users.Create">
+          <name>CreateDboUser</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.Users">
+              <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>user</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.Users.Read">
+          <name>ReadDboUser</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://www.w3.org/2001/XMLSchema long</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.Users.Update">
+          <name>UpdateDboUser</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.Users">
+              <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>user</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.Users.Delete">
+          <name>DeleteDboUser</name>
+          <parameters>
+            <parameter id="NorthwindWithSecurity.dbo.Users">
+              <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>user</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="NorthwindWithSecurity.dbo.Users.Search">
+          <name>SearchDboUser</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="Id">
+              <typeId>http://www.w3.org/2001/XMLSchema long</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>id</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+                <fieldId>Id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+                <fieldId>Name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="e1813cf13d64483aaa2c37326eafb496">
+          <name>SearchByGroupDboUser</name>
+          <return>
+            <typeId>NorthwindWithSecurity.dbo.Users</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="020974ba7d2147a58c6874771b399b10">
+              <typeId>NorthwindWithSecurity.dbo.security_UsersGroups</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>Group</name>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+      </operations>
+    </service>
+  </services>
+  <settings>
+    <baseNamespace>Rhino.Security</baseNamespace>
+  </settings>
+</definitions>

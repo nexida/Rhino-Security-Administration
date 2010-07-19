@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation", "Conversation.csproj", "{D3339140-2B01-4F12-9792-03BE21B14058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation.Tests", "..\Conversation.Tests\Conversation.Tests.csproj", "{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3339140-2B01-4F12-9792-03BE21B14058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3339140-2B01-4F12-9792-03BE21B14058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3339140-2B01-4F12-9792-03BE21B14058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3339140-2B01-4F12-9792-03BE21B14058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

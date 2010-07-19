@@ -1,0 +1,15 @@
+
+Logs/
+ext/
+obj/
+bin/
+*.csproj.user
+*ReSharper.user
+_ReSharper*
+*resharper*
+*.suo
+*.cache
+* Thumbs.db
+
+src/Rhino.Security.Mgmt/Rhino.Security.Mgmt.Publish.xml
+src/Rhino.Security.Mgmt/TODO.txt
