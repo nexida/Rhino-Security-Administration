@@ -1,5 +1,5 @@
 --------------------------------------------
--- Intro
+-- Rhino Security Administration
 --------------------------------------------
 
 This is a simple implementation of an administrative user interface for the Rhino Security framework. 
