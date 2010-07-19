@@ -9,5 +9,5 @@ Some part of UI are following *[this](http://rhino-tools-dev.googlegroups.com/at
 Getting Started
 ---------------
 
-Read the [readme.txt](http://github.com/nexida/rhino-security-administration/raw/master/readme.txt) file for more information about getting started.
+Read the [readme.txt](http://github.com/nexida/rhino-security-administration/blob/master/readme.txt) file for more information about getting started.
                  
