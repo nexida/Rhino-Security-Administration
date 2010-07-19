@@ -6,6 +6,8 @@ It was built using *[NEXiDA code generation tools](http://www.nexida.com/smartui
 
 Some part of UI are following *[this](http://rhino-tools-dev.googlegroups.com/attach/0a63df296482c47c/perms.png?gda=NXWCCEQAAABqEPH6mMNzHk0-ymvumASkwZlVSLQQdkej8l5jUshxg-MF-emFP98VnK4EbMWjMWFV6u9SiETdg0Q2ffAyHU-dzc4BZkLnSFWX59nr5BxGqA&view=1&part=4)* mock up.         
 
+See a *[live demo](http://codegen.nexida.com/samples/rhinosecurityadmin/#)*.
+
 Getting Started
 ---------------
 
