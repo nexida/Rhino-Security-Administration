@@ -21,6 +21,15 @@ task Clean {
 
 task Init -depends Clean { 
 	Generate-Assembly-Info `
+		-file "$base_dir\src\Conversation\Properties\AssemblyInfo.cs" `
+		-title "A simple Conversation framework for NHibernate" `
+		-description "Conversation framework for NHibernate" `
+		-company $company `
+		-product "NEXiDA Conversation framework for NHibernate" `
+		-version $version `
+		-copyright $copyright
+
+	Generate-Assembly-Info `
 		-file "$base_dir\src\Rhino.Security.Mgmt\Properties\AssemblyInfo.cs" `
 		-title $title `
 		-description $description `
