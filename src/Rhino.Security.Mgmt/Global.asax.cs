@@ -22,12 +22,10 @@ using Rhino.Security.Mgmt.Infrastructure;
 using NHibernate;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
-using Rhino.Security.Mgmt.Infrastructure;
 using Rhino.Security.Mgmt.Model;
 using Rhino.Security.Interfaces;
 using Rhino.Security.Services;
 using System;
-using Rhino.Security.Mgmt.Infrastructure;
 using log4net;
 
 namespace Rhino.Security.Mgmt

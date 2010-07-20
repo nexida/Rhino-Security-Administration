@@ -13,3 +13,5 @@ _ReSharper*
 
 src/Rhino.Security.Mgmt/Rhino.Security.Mgmt.Publish.xml
 src/Rhino.Security.Mgmt/TODO.txt
+
+build/

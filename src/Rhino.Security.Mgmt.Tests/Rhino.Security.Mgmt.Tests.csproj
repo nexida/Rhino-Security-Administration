@@ -90,11 +90,11 @@
   <ItemGroup>
     <Compile Include="Controllers\OperationControllerTest.cs" />
     <Compile Include="Infrastructure\ValidationManagerTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContainerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Conversation\Conversation.csproj">

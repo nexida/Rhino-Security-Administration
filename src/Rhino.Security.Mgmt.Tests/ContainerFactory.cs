@@ -10,7 +10,6 @@ using Castle.MicroKernel.Registration;
 using Conversation;
 using AutoMapper;
 using Rhino.Security.Mgmt.Model;
-using Rhino.Security.Mgmt.Infrastructure;
 using Rhino.Security.Mgmt.Dtos;
 using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
@@ -18,7 +17,6 @@ using NHibernate;
 using Castle.MicroKernel;
 using Conversation.NHibernate;
 using Rhino.Security.Model;
-using Rhino.Security.Mgmt.Infrastructure;
 using NHibernate.Validator.Engine;
 using NHibernate.Validator.Cfg;
 

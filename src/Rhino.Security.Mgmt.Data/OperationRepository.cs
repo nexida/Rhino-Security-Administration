@@ -1,7 +1,6 @@
 using System.Linq;
 using NHibernate.Linq;
 using Rhino.Security.Mgmt.Infrastructure;
-using Rhino.Security.Mgmt.Infrastructure;
 
 namespace Rhino.Security.Mgmt.Data
 {
