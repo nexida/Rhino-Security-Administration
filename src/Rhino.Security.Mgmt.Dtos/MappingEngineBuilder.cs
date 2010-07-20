@@ -16,7 +16,7 @@ namespace Rhino.Security.Mgmt.Dtos
 			Mapper.Reset();
 			DomainToDto();
 			DtoToDomain();
-			//Mapper.AssertConfigurationIsValid();
+			Mapper.AssertConfigurationIsValid();
 			return Mapper.Engine;
 		}
 
@@ -28,12 +28,6 @@ namespace Rhino.Security.Mgmt.Dtos
 				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().ToString(s)));
 			Mapper.CreateMap<Rhino.Security.Model.Operation, OperationReferenceDto>()
 				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().ToString(s)))
-				.ForMember(d => d.Description, o => o.MapFrom(s => s.ToString()));
-
-			Mapper.CreateMap<Rhino.Security.Model.Permission, PermissionDto>()
-				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Permission>>().ToString(s)));
-			Mapper.CreateMap<Rhino.Security.Model.Permission, PermissionReferenceDto>()
-				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Permission>>().ToString(s)))
 				.ForMember(d => d.Description, o => o.MapFrom(s => s.ToString()));
 
 			Mapper.CreateMap<Rhino.Security.Model.UsersGroup, UsersGroupDto>()
@@ -87,10 +81,6 @@ namespace Rhino.Security.Mgmt.Dtos
 						permission.UsersGroup = sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.UsersGroup>>().FromString(permissionDto.UsersGroupStringId);
 					}
 				});
-
-			Mapper.CreateMap<PermissionReferenceDto, Rhino.Security.Model.Permission>()
-				.ConstructUsing(s => string.IsNullOrEmpty(s.StringId) ? sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IFactory<Rhino.Security.Model.Permission>>().Create() : sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Permission>>().FromString(s.StringId))
-				.ForAllMembers(o => o.Ignore());
 
 			Mapper.CreateMap<UsersGroupDto, Rhino.Security.Model.UsersGroup>()
 				.ConstructUsing(s => string.IsNullOrEmpty(s.StringId) ? sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IFactory<Rhino.Security.Model.UsersGroup>>().Create() : sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.UsersGroup>>().FromString(s.StringId))

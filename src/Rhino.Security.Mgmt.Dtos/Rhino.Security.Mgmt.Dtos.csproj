@@ -56,7 +56,6 @@
     <Compile Include="OperationDto.cs" />
     <Compile Include="OperationReferenceDto.cs" />
     <Compile Include="PermissionDto.cs" />
-    <Compile Include="PermissionReferenceDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDto.cs" />
     <Compile Include="UserReferenceDto.cs" />
