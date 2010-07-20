@@ -9,7 +9,6 @@ properties {
   $copyright = "NEXiDA srl 2008 - 2010"
   $title = "Rhino Security Administration $version"
   $description = "Administration UI for the Rhino Security security library"
-  $framework = '4.0'
 } 
 
 include .\psake_ext.ps1
@@ -88,7 +87,7 @@ task Init -depends Clean {
 } 
 
 task Compile -depends Init { 
-  & msbuild /version "$sln_file" "/p:OutDir=$build_dir\" /p:Configuration=Release
+  & msbuild "$sln_file" "/p:OutDir=$build_dir\" /p:Configuration=Release
   if ($lastExitCode -ne 0) {
         throw "Error: Failed to execute msbuild"
   }
