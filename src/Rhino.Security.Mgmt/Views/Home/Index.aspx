@@ -65,7 +65,24 @@
 </head>
 <body>
   <div id="header">
-	<div class="title">Rhino Security Administration (beta)</div>
+	<div class="title">Rhino Security Administration (beta) - created by <a href="http://www.nexida.com/smartui" target="_blank">NEXiDA</a></div>
+  </div>
+  <div id="welcome">
+	<p>
+	<b>Rhino Security Administration</b> is a simple implementation of a management UI for <a href="http://github.com/ayende/rhino-security" target="_blank">Rhino Security</a>.
+	</p>
+	<br />
+	It currently supports:<br />
+	<ul class="supportedFeatures">
+		<li>managing users, groups and their associations</li>
+		<li>managing operations (add and search)</li>
+		<li>managing permissions for users\groups on operations</li>
+	</ul>
+	<br />
+	<p>It was built with <a href="http://www.nexida.com/smartui" target="_blank">NEXiDA code generation tools</a>, 
+	using the <a href="http://www.nexida.com/smartui/Code_Generation_Shared_Templates.asp">MVC + ExtJs template set</a>.</p>
+	<br />
+	<p>The project is open source and hosted on github - <a href="http://github.com/nexida/Rhino-Security-Administration" target="_blank">see source code</a>.</p>
   </div>
 </body>
 </html>

@@ -167,7 +167,8 @@ Rhino.Security.MainViewport = Ext.extend(Ext.Viewport, {
 			//plugins: new Ext.ux.TabCloseMenu(),
 			items: [{
 				xtype: 'panel',
-				title: 'Welcome'
+				title: 'Welcome',
+				el: 'welcome'
 			}]
 		});
 

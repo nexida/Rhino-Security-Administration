@@ -8,5 +8,17 @@
 	margin: 5px;
 	color: white;
 	}
+
+#welcome
+{
+	font:14px tahoma,arial,helvetica;
+	margin: 20px;
+	}
+
+.supportedFeatures 
+{
+	list-style: disc none inside
+	}
+
 	
 	
