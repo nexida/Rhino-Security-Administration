@@ -3,6 +3,11 @@
 --------------------------------------------
 
 This is a simple implementation of an administrative user interface for the Rhino Security framework. 
+It currently only supports:
+ * managing users, groups and their associations
+ * managing operations (add and search)
+ * managing permissions for users\groups on given operations
+
 It's built using ExtJS for the UI and ASP.NET MVC v2 for the server side. 
 Json is used for the communication between client and server.
 
@@ -34,6 +39,21 @@ After having done that, you should have the following folder\file structure unde
 	.\src\Rhino.Security.Mgmt\ext\ext-all-debug-w-comments.js
 	
 For a deployed live sample see http://codegen.nexida.com/samples/rhinosecurityadmin/#
+
+--------------------------------------------
+-- Database
+--------------------------------------------
+
+The application uses a sample database (called [RhinoSecurityAdmin]) containing the Rhino Security tables and a custom User table. 
+A utility script is provided to generate the database (see SecurityTablesScript).
+
+--------------------------------------------
+-- Build
+--------------------------------------------
+
+The project should be built using the provided Powershell scripts, that are ported from Rhino Security by Ayende (http://github.com/ayende/rhino-security).
+For more details please read 'How to build.txt'.
+
 --------------------------------------------
 -- Licences
 --------------------------------------------
@@ -41,4 +61,6 @@ For a deployed live sample see http://codegen.nexida.com/samples/rhinosecurityad
 This software is distributed under the terms of the new BSD Licence (see licence.txt).
 
 It uses software developed under different licences. See the '\libs' folder. 
+
+In particular, make sure you read the 'ExtJs' section above.
 
