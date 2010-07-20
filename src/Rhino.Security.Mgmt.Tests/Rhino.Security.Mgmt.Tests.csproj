@@ -91,10 +91,10 @@
     <Compile Include="Controllers\OperationControllerTest.cs" />
     <Compile Include="Infrastructure\ValidationManagerTests.cs" />
     <Compile Include="ContainerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Conversation\Conversation.csproj">
