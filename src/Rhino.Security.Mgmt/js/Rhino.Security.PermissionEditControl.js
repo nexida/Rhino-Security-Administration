@@ -92,6 +92,7 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 		_buildWindow = function (action) {
 			if (action === 'user') {
 				return new Rhino.Security.UserEditWindow({
+					closeAction: 'hide',
 					listeners: {
 						editended: _onUserEditEnded
 					}
@@ -99,6 +100,7 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 			}
 			if (action === 'group') {
 				return new Rhino.Security.UsersGroupEditWindow({
+					closeAction: 'hide',
 					listeners: {
 						editended: _onGroupEditEnded
 					}
