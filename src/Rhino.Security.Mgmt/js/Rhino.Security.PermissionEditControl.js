@@ -8,6 +8,8 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 	initComponent: function () {
 		var _this = this,
 		_selectedOperation,
+		_usersWindow,
+		_groupsWindow,
 
 		_store = new Ext.data.Store({
 			autoDestroy: true,
@@ -30,51 +32,53 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 		}),
 
 		_editEnded = function (window, item, itemType) {
-			var currentItems = _this.getValue(),
+			if (item !== null) {
+				var currentItems = _this.getValue(),
 			found = false,
 			i,
 			count = currentItems.length,
 			newPermission;
-			for (i = 0; i < count; i += 1) {
-				if (currentItems[i] && currentItems[i].Description === item.Name) {
-					found = true;
-					break;
+				for (i = 0; i < count; i += 1) {
+					if (currentItems[i] && currentItems[i].Description === item.Name) {
+						found = true;
+						break;
+					}
+				}
+
+				if (!found) {
+					newPermission = {
+						Allow: _this.name === 'allowed' ? true : false,
+						UserStringId: itemType === 'user' ? item.StringId : null,
+						UsersGroupStringId: itemType === 'group' ? item.StringId : null,
+						OperationName: _selectedOperation
+					};
+
+					_this.el.mask('Saving...', 'x-mask-loading');
+
+					Rpc.call({
+						url: 'Permission/Create',
+						params: { item: newPermission },
+						success: function (actionResult) {
+							if (actionResult && actionResult.item) {
+								currentItems.push({
+									StringId: actionResult.item.Id,
+									Id: actionResult.item.Id,
+									Description: actionResult.item.Description,
+									Type: actionResult.item.Type
+								});
+								_listView.getStore().load();
+							}
+						},
+						callback: function () {
+							_this.el.unmask();
+						}
+					});
+
+
 				}
 			}
 
-			if (!found) {
-				newPermission = {
-					Allow: _this.name === 'allowed' ? true : false,
-					UserStringId: itemType === 'user' ? item.StringId : null,
-					UsersGroupStringId: itemType === 'group' ? item.StringId : null,
-					OperationName: _selectedOperation
-				};
-
-				_this.el.mask('Saving...', 'x-mask-loading');
-
-				Rpc.call({
-					url: 'Permission/Create',
-					params: { item: newPermission },
-					success: function (actionResult) {
-						if (actionResult && actionResult.item) {
-							currentItems.push({
-								StringId: actionResult.item.Id,
-								Id: actionResult.item.Id,
-								Description: actionResult.item.Description,
-								Type: actionResult.item.Type
-							});
-							_listView.getStore().load();
-						}
-					},
-					callback: function () {
-						_this.el.unmask();
-					}
-				});
-
-
-			}
-
-			window.close();
+			window.hide();
 		},
 
 		_onUserEditEnded = function (window, item) {
@@ -107,8 +111,8 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 				Ext.MessageBox.show({ msg: 'Please select an operation on the left first.', icon: Ext.MessageBox.WARNING, buttons: Ext.MessageBox.OK });
 				return;
 			}
-			var window = _buildWindow('user');
-			window.show(button.getEl());
+			_usersWindow = _usersWindow || _buildWindow('user');
+			_usersWindow.show(button.getEl());
 		},
 
 		_onAddUsersGroupButtonClick = function (button) {
@@ -116,8 +120,8 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 				Ext.MessageBox.show({ msg: 'Please select an operation on the left first.', icon: Ext.MessageBox.WARNING, buttons: Ext.MessageBox.OK });
 				return;
 			}
-			var window = _buildWindow('group');
-			window.show(button.getEl());
+			_groupsWindow = _groupsWindow || _buildWindow('group');
+			_groupsWindow.show(button.getEl());
 		},
 
 		_getSelectedItems = function () {
@@ -185,7 +189,7 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 						listeners: {
 							click: _onAddUserButtonClick
 						}
-					}, 
+					},
 					{
 						xtype: 'button',
 						text: 'Add Group',
@@ -201,6 +205,15 @@ Rhino.Security.PermissionEditControl = Ext.extend(Ext.Panel, {
 						}
 					}
 				]
+			},
+			beforeDestroy: function () {
+				if (_usersWindow) {
+					_usersWindow.close();
+				}
+				if (_groupsWindow) {
+					_groupsWindow.close();
+				}
+				Rhino.Security.PermissionEditControl.superclass.beforeDestroy.apply(_this, arguments);
 			},
 			setValue: function (v, operation) {
 				_selectedOperation = operation;
