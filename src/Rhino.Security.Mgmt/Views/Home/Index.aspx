@@ -65,7 +65,7 @@
 </head>
 <body>
   <div id="header">
-	<div class="title">Rhino Security Administration (beta) - created by <a href="http://www.nexida.com/smartui" target="_blank">NEXiDA</a></div>
+	<div class="title">Rhino Security Administration (beta)</div>
   </div>
   <div id="welcome">
 	<p>
