@@ -1,0 +1,17 @@
+Before building the project, you need to download and copy the ExtJs files. 
+The UI of this software has been built using ExtJS (see http://www.sencha.com/products/js/). For licencing reasons (ExtJS is distributed under LGPL v3) the source code of ExtJS cannot be included here. 
+So, in order to correctly run the application, you must:
+ a) download ExtJS from http://www.sencha.com/products/js/
+ b) copy it under '.\src\Rhino.Security.Mgmt\ext'.
+
+
+When ExtJs is ready, in order to build this project, you need to execute the psake build script from the PowerShell console.
+
+You do this using the following command from the root project directory:
+
+	.\psake.ps1 default.ps1 "compile" "4.0"
+	
+You may need to allow script execution by running the following command as administrator:
+
+	Set-ExecutionPolicy unrestricted
+	
