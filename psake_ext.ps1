@@ -33,6 +33,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyInformationalVersionAttribute(""$version / $commit"")]
 [assembly: AssemblyFileVersionAttribute(""$version"")]
 [assembly: AssemblyDelaySignAttribute(false)]
+[assembly: InternalsVisibleTo(""Rhino.Security.Mgmt.Tests"")] 
 "
 
 	$dir = [System.IO.Path]::GetDirectoryName($file)

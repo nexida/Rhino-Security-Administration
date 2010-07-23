@@ -67,6 +67,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate-2.1.2.GA\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\libs\NHibernate-2.1.2.4000_DynamicProxy-2.2.0.0_Integration\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate.Validator, Version=1.2.0.3001, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernateValidator-1.2.0.CR1\NHibernate.Validator.dll</HintPath>
@@ -80,6 +83,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\libs\SQLLite\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,9 +95,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\OperationControllerTest.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="Controllers\OperationControllerIntegrationTest.cs" />
     <Compile Include="Infrastructure\ValidationManagerTests.cs" />
-    <Compile Include="ContainerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +128,9 @@
       <Project>{1E36D9AE-9148-4252-9D4B-E552553B6179}</Project>
       <Name>Rhino.Security.Mgmt.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
