@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="MappingEngineBuilder.cs" />
     <Compile Include="OperationDto.cs" />
-    <Compile Include="OperationReferenceDto.cs" />
     <Compile Include="PermissionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDto.cs" />

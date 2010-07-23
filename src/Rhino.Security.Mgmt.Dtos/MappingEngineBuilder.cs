@@ -26,9 +26,6 @@ namespace Rhino.Security.Mgmt.Dtos
 
 			Mapper.CreateMap<Rhino.Security.Model.Operation, OperationDto>()
 				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().ToString(s)));
-			Mapper.CreateMap<Rhino.Security.Model.Operation, OperationReferenceDto>()
-				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().ToString(s)))
-				.ForMember(d => d.Description, o => o.MapFrom(s => s.ToString()));
 
 			Mapper.CreateMap<Rhino.Security.Model.UsersGroup, UsersGroupDto>()
 				.ForMember(d => d.StringId, o => o.MapFrom(s => sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.UsersGroup>>().ToString(s)));
@@ -58,10 +55,6 @@ namespace Rhino.Security.Mgmt.Dtos
 				.ConstructUsing(s => string.IsNullOrEmpty(s.StringId) ? sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IFactory<Rhino.Security.Model.Operation>>().Create() : sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().FromString(s.StringId))
 				.ForMember(d => d.Parent, o => o.Ignore())
 				.ForMember(d => d.Children, o => o.Ignore());
-
-			Mapper.CreateMap<OperationReferenceDto, Rhino.Security.Model.Operation>()
-				.ConstructUsing(s => string.IsNullOrEmpty(s.StringId) ? sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IFactory<Rhino.Security.Model.Operation>>().Create() : sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Operation>>().FromString(s.StringId))
-				.ForAllMembers(o => o.Ignore());
 
 			Mapper.CreateMap<PermissionDto, Rhino.Security.Model.Permission>()
 				.ConstructUsing(s => string.IsNullOrEmpty(s.StringId) ? sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IFactory<Rhino.Security.Model.Permission>>().Create() : sl.GetInstance<Rhino.Security.Mgmt.Infrastructure.IStringConverter<Rhino.Security.Model.Permission>>().FromString(s.StringId))
