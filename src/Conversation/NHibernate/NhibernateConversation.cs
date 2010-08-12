@@ -120,11 +120,5 @@ namespace Conversation.NHibernate
 		{
 			Dispose(false);
 		}
-
-		public ISession GetASession()
-		{
-			CheckState(ConversationState.Opened);
-			return _map.Values.FirstOrDefault();
-		}
 	}
 }

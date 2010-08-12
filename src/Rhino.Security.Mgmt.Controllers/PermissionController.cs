@@ -59,6 +59,11 @@ namespace Rhino.Security.Mgmt.Controllers
 				throw new ArgumentNullException("stringIds");
 			}
 
+			if (stringIds.Length == 0)
+			{ 
+				return; 
+			}
+
 			using (_conversation.SetAsCurrent())
 			{
 				foreach (var s in stringIds)

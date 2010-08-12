@@ -1,6 +1,7 @@
 properties { 
   $base_dir  = resolve-path .
   $build_dir = "$base_dir\build" 
+  $libs_dir = "$base_dir\libs"
   $sln_file = "$base_dir\src\Rhino.Security.Mgmt.sln" 
   $version = "1.0.0.0"
   $humanReadableversion = "1.0"
@@ -13,7 +14,7 @@ properties {
 
 include .\psake_ext.ps1
 	
-task default -depends Compile
+task default -depends Test
 
 task Clean { 
   remove-item -force -recurse $build_dir -ErrorAction SilentlyContinue 
@@ -100,5 +101,11 @@ task Compile -depends Init {
   if ($lastExitCode -ne 0) {
         throw "Error: Failed to execute msbuild"
   }
-
 } 
+
+task Test -depends Compile {
+  $old = pwd
+  cd $build_dir
+  & "$libs_dir\NUnit\2.5\nunit-console.exe" "$build_dir\Rhino.Security.Mgmt.Tests.dll"
+  cd $old		
+}

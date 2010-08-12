@@ -96,7 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
-    <Compile Include="Controllers\OperationControllerIntegrationTest.cs" />
+    <Compile Include="Integration\OperationIntegrationTest.cs" />
+    <Compile Include="Integration\PermissionIntegrationTest.cs" />
     <Compile Include="Infrastructure\ValidationManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

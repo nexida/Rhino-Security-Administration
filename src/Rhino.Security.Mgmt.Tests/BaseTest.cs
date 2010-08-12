@@ -36,17 +36,21 @@ namespace Rhino.Security.Mgmt.Tests
 	{
 		static NHibernate.Cfg.Configuration _nhConfig;
 
-		protected BaseTest()
-		{
-			WireThingsUp();
-		}
-
 		protected virtual void SetUp()
 		{
-			using (ServiceLocator.Current.GetInstance<IConversation>().SetAsCurrent())
+			WireThingsUp();
+			var currentConversation = ServiceLocator.Current.GetInstance<IConversation>();
+			using (currentConversation.SetAsCurrent())
 			{
 				new SchemaExport(_nhConfig).Execute(false, true, false, ServiceLocator.Current.GetInstance<ISessionFactory>().GetCurrentSession().Connection, null);
+				currentConversation.Flush();
 			}
+		}
+
+		[TearDown]
+		protected void TearDown()
+		{
+			ServiceLocator.Current.GetInstance<IConversation>().Dispose();
 		}
 
 		private IWindsorContainer WireThingsUp()
@@ -64,7 +68,7 @@ namespace Rhino.Security.Mgmt.Tests
 			ioc.Register(Component.For<PermissionsBuilderServiceFactory>());
 			// end setup Rhino Security services
 
-			ioc.Register(Component.For<SecurityUsersToUsersGroupsAssociationSynchronizer>().LifeStyle.Transient);
+			ioc.Register(Component.For<SecurityUsersToUsersGroupsAssociationSynchronizer>());
 
 			ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
 			ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation));

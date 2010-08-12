@@ -52,6 +52,7 @@ Rhino.Security.UserFormPanel = Ext.extend(Ext.form.FormPanel, {
 			},
 			setUpFormForNewItem: function () {
 				_entityIdFieldContainer.hide();
+				_this.doLayout();
 				_this.getForm().findField('Id').setRawValue('0');
 			}
 		});

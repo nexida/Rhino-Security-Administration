@@ -11,7 +11,5 @@ namespace Conversation
 		void Flush();
 
 		void Close();
-
-		ISession GetASession();
 	}
 }
